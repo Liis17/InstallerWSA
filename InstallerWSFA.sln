@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallerWSFA", "InstallerWSFA\InstallerWSFA.csproj", "{EC847598-F4B2-4A60-A566-851D9E90D15B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC847598-F4B2-4A60-A566-851D9E90D15B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC847598-F4B2-4A60-A566-851D9E90D15B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC847598-F4B2-4A60-A566-851D9E90D15B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC847598-F4B2-4A60-A566-851D9E90D15B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0775FCF0-BAFB-4807-843F-DE0B83D7AF6C}
+	EndGlobalSection
+EndGlobal
