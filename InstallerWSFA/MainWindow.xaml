@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InstallerWSFA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Installer Windows Subsystem for Android β" Height="100" Width="400">
+    <Grid Background="#FF212121" >
+        <TextBlock Text="Установщик автоматически закроется через 30 секунд" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="Segoe UI Semibold" TextAlignment="Center"></TextBlock>
         <TextBox Visibility="Hidden" x:Name="symbol" Margin="10,10,723,360" FontSize="30" Text="&quot;"></TextBox>
     </Grid>
 </Window>
