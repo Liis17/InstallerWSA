@@ -38,17 +38,16 @@ namespace InstallerWSFA
             
             if (isHaveProcess("vmwp") == true) //VmmemWSA //проверка что эта хуета запущена
             {
-                
-
-                if (App.Pathfile == "")
+                if (App.Pathfile == null)
                 {
                     FileSelector.OpenData();
                 }
-                else
+                else if(App.Pathfile != null)
                 {
-                    MainWindow.filename = $"{MainWindow.tbsymbol.Text}{App.Pathfile}{MainWindow.tbsymbol.Text}";
+                    filename = $"{tbsymbol.Text}{App.Pathfile}{tbsymbol.Text}";
                     Receiving.ReceivingPath();
                 }
+                
             }
             else
             {
