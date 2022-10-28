@@ -13,5 +13,12 @@ namespace InstallerWSFA
     /// </summary>
     public partial class App : Application
     {
+
+        public static string? Pathfile = ""; // путь до файла при старте
+        void App_Startup(object sender, StartupEventArgs e)
+        {
+            Pathfile = e.Args?.FirstOrDefault();
+        }
+
     }
 }

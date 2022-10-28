@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using InstallerWSA;
+
+using Microsoft.Win32;
 
 using System;
 using System.Collections.Generic;
@@ -25,69 +27,49 @@ namespace InstallerWSFA
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string path = Environment.ProcessPath;
-        public string pathadb;
-        string filename = "";
+        public static string path = Environment.ProcessPath;
+        public static string pathadb;
+        public static string filename;
+        public static TextBox tbsymbol;
         public MainWindow()
         {
             InitializeComponent();
-            OpenData();
-        }
-
-        private void OpenData()
-        {
-            OpenFileDialog Filedialog = new OpenFileDialog();
-            Filedialog.InitialDirectory = (Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
-            Filedialog.Filter = "APK |*.apk";
-            Filedialog.Title = "Select .apk";
-            Filedialog.FilterIndex = 1;
-            try
+            tbsymbol = symbol;
+            
+            if (isHaveProcess("vmwp") == true) //VmmemWSA //проверка что эта хуета запущена
             {
-                if (Filedialog.ShowDialog() == true)
+                
+
+                if (App.Pathfile == "")
                 {
-                    filename = $"{symbol.Text}{Filedialog.FileName}{symbol.Text}";
-                    ReceivingPath();
+                    FileSelector.OpenData();
+                }
+                else
+                {
+                    MainWindow.filename = $"{MainWindow.tbsymbol.Text}{App.Pathfile}{MainWindow.tbsymbol.Text}";
+                    Receiving.ReceivingPath();
                 }
             }
-            catch
+            else
             {
-                MessageBox.Show("Файл не выбран!","Не выбран файл");
+                MessageBox.Show("WSA не запущен", "Упс");
             }
-        }
-        public void ReceivingPath()
-        {
-            List<string> list = new List<string>();
-            string[] a = path.Split("\\");
-            foreach (var item in a)
-            {
-                list.Add(item + "\\");
-            }
-            list.RemoveAt(list.Count - 1);
-            path = "";
-            foreach (var item in list)
-            {
-                path += item;
-            }
-            pathadb = path + "ADB\\adb.exe";
-            path += "ADB\\aboba.cmd";
-            CreateFile();
-        }
-        public void CreateFile()
-        {
-            
-            string param = $"{pathadb} connect 127.0.0.1:58526\n{pathadb} -s 127.0.0.1:58526 install {filename}\nbreak 5";
-            File.WriteAllText(path, param);
-            StartFile();
-        }
 
-        public void StartFile()
-        {
-            Process.Start(path);
-            Thread.Sleep(30000);
-            File.Delete(path);
-            Close();
         }
+        public bool isHaveProcess(string pName)
+        {
+            Process[] pList = Process.GetProcesses();
+            foreach (Process myProcess in pList)
+            {
+                if (myProcess.ProcessName == pName)
+                    return true;
+            }
+            return false;
+        } // проверка что эта хуета запущена х2
 
-       
+        private void symbol_Loaded(object sender, RoutedEventArgs e)
+        {
+            Process.GetCurrentProcess().Kill();
+        } //если эта штука будет отрисованна то программа закрывается
     }
 }

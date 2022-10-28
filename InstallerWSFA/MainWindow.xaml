@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Installer Windows Subsystem for Android β" Height="100" Width="400">
     <Grid Background="#FF212121" >
-        <TextBlock Text="Установщик автоматически закроется через 30 секунд" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="Segoe UI Semibold" TextAlignment="Center"></TextBlock>
-        <TextBox Visibility="Hidden" x:Name="symbol" Margin="10,10,723,360" FontSize="30" Text="&quot;"></TextBox>
+        <TextBlock Text="Установщик автоматически закроется через несколько секунд" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="Segoe UI Semibold" TextAlignment="Center"></TextBlock>
+        <TextBox Loaded="symbol_Loaded" Visibility="Hidden" x:Name="symbol" Margin="10,10,723,360" FontSize="30" Text="&quot;"></TextBox>
     </Grid>
 </Window>
