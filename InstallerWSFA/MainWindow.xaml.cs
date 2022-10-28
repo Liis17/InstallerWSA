@@ -35,24 +35,31 @@ namespace InstallerWSFA
         {
             InitializeComponent();
             tbsymbol = symbol;
-            
-            if (isHaveProcess("vmwp") == true) //VmmemWSA //проверка что эта хуета запущена
+            if (Exists.YourPirateShip() == true) //проверка что adb еще тут
             {
-                if (App.Pathfile == null)
+                if (isHaveProcess("vmwp") == true) //VmmemWSA //проверка что эта хуета запущена
                 {
-                    FileSelector.OpenData();
+                    if (App.Pathfile == null)
+                    {
+                        FileSelector.OpenData();
+                    }
+                    else if (App.Pathfile != null)
+                    {
+                        filename = $"{tbsymbol.Text}{App.Pathfile}{tbsymbol.Text}";
+                        Receiving.ReceivingPath();
+                    }
+
                 }
-                else if(App.Pathfile != null)
+                else
                 {
-                    filename = $"{tbsymbol.Text}{App.Pathfile}{tbsymbol.Text}";
-                    Receiving.ReceivingPath();
+                    MessageBox.Show("WSA не запущен", "Упс");
                 }
-                
             }
             else
             {
-                MessageBox.Show("WSA не запущен", "Упс");
+                MessageBox.Show("А куда делся adb который был в папке с этой программой?\nВерни пж на место pls", "Бл*тъб");
             }
+            
 
         }
         public bool isHaveProcess(string pName)
